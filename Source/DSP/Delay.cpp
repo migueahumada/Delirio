@@ -19,8 +19,9 @@ Delay::~Delay(){}
 
 void Delay::prepare(double inSamplesRate, int samplesPerBlock, int inNumChannels)
 {
-    delayObject.setMaximumDelayInSamples((int)inSamplesRate);
+    
     currentSampleRate = inSamplesRate;
+    delayObject.setMaximumDelayInSamples(5000.0f * static_cast<float>(inSamplesRate));
     
     spec.sampleRate = inSamplesRate;
     spec.maximumBlockSize = samplesPerBlock;
@@ -38,13 +39,15 @@ void Delay::process(juce::AudioBuffer<float>& inBuffer, float feedback, float ga
     float delayedSample = {0.0f};
     float inDelay = {0.0f};
     
+    float delayTimeInSamples = static_cast<int>((currentSampleRate * delayTime)/1000);
+    
 
     for (int channel = 0; channel < inBuffer.getNumChannels(); channel++) {
         for (int i = 0; i < inBuffer.getNumSamples(); i++) {
             
             inSample = inBuffer.getSample(channel, i);
             
-            delayedSample = delayObject.popSample(channel, ((currentSampleRate * delayTime)/1000));
+            delayedSample = delayObject.popSample(channel, delayTimeInSamples);
             
             inDelay = inSample + (feedback * delayedSample);
             

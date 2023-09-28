@@ -12,6 +12,7 @@
 #include "./DSP/Delay.h"
 #include "./DSP/DryWet.h"
 #include "./DSP/SVFilter.h"
+#include "./DSP/Stereorizer.h"
 
 //==============================================================================
 /**
@@ -72,6 +73,8 @@ public:
     
     SVFilter lpf;
     SVFilter hpf;
+    
+    Stereorizer stereorizer;
     
  
     

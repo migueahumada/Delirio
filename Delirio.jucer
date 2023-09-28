@@ -9,6 +9,8 @@
         <FILE id="tzYpNX" name="Delay.h" compile="0" resource="0" file="Source/DSP/Delay.h"/>
         <FILE id="pDhYFW" name="DryWet.cpp" compile="1" resource="0" file="Source/DSP/DryWet.cpp"/>
         <FILE id="CBp2Ip" name="DryWet.h" compile="0" resource="0" file="Source/DSP/DryWet.h"/>
+        <FILE id="HwkGer" name="Stereorizer.cpp" compile="1" resource="0" file="Source/DSP/Stereorizer.cpp"/>
+        <FILE id="CKGzyb" name="Stereorizer.h" compile="0" resource="0" file="Source/DSP/Stereorizer.h"/>
         <FILE id="DJs9wh" name="SVFilter.cpp" compile="1" resource="0" file="Source/DSP/SVFilter.cpp"/>
         <FILE id="DAZAOM" name="SVFilter.h" compile="0" resource="0" file="Source/DSP/SVFilter.h"/>
       </GROUP>

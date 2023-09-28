@@ -175,25 +175,10 @@ void DelirioAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
     myDelay.process(buffer, feedbackParameter, gainParameter, delayTimeParameter);
     lpf.process(buffer, lpfCutoffParameter);
     hpf.process(buffer, hpfCutoffParameter);
+    
+    //stereorizer.process(buffer);
+    
     myDryWet.process(dryBuffer, buffer, dryWetParameter);
-    
-    
-    /*
-    int delayTimeInSamples = (*apvts.getRawParameterValue("DelayTime") * mySampleRate) / 1000;
-    myDelay.setDelay(delayTimeInSamples);
-    
-    for (int channel = 0; channel < totalNumInputChannels; ++channel) {
-        auto* inSamples = buffer.getReadPointer(channel);
-        auto* outSamples = buffer.getWritePointer(channel);
-        
-        for (int i = 0; i < buffer.getNumSamples(); i++) {
-            float delayedSample = myDelay.popSample(channel);
-            float inDelay = inSamples[i] + (*apvts.getRawParameterValue("Feedback")* delayedSample);
-            myDelay.pushSample(channel, inDelay);
-            outSamples[i] = (inSamples[i] + delayedSample) * (*apvts.getRawParameterValue("Gain"));
-        }
-    }
-    */
     
 }
 
